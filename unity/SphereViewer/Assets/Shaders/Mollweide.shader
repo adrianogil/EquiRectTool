@@ -43,24 +43,21 @@
 				float2 raduv = o.uv;
 				float2 uv;
 
-				raduv.x = raduv.x * 2 * PI;
-				raduv.y = raduv.y * PI / 2;
+				raduv.x = (raduv.x - 0.5) * 4;
+				raduv.y = (raduv.y - 0.5) * 2;
 
-				float theta = raduv.y;
+				float theta = asin(raduv.y);
 
-				for (int i = 0; i < 50; i++)
+				uv.x = PI * raduv.x / (2  * cos(theta));
+				uv.y = asin((2*theta + sin(2*theta))/PI);
+
+				uv.x = uv.x / (2*PI) + 0.5;
+				uv.y = uv.y * (1/PI) + 0.5;
+
+				if (uv.x < 0 || uv.x > 1 || uv.y < 0 || uv.y > 1)
 				{
-					theta = theta - ((2*theta + sin(2*theta) - PI * sin(raduv.y)) / (2 + 2 * cos(2 * theta)));
+					return float4(1,1,1,1);
 				}
-
-				uv.x = (2 * sqrt(2) / PI) * (raduv.x - 0) * cos(theta);
-				uv.y = sqrt(2) * sin(theta);
-
-				uv.x = uv.x + 2*sqrt(2);
-				uv.x = uv.x / (4*sqrt(2));
-
-				uv.y = uv.y + sqrt(2);
-				uv.y = uv.y / sqrt(2);
 
                 return tex2D(_MainTex, uv);
             }
