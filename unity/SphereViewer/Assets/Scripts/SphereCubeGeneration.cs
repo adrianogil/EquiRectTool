@@ -55,7 +55,8 @@ public class SphereCubeGeneration : MonoBehaviour {
         MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
         MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
         MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
-        // MeshProcessing.SubdivideTriangles(meshBuilder);
+        MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
+        MeshProcessing.SubdivideTriangles(meshBuilder);
         // MeshProcessing.SubdivideTriangles(meshBuilder);
         // MeshProcessing.SubdivideTriangles(meshBuilder);
         // MeshProcessing.SubdivideTriangles(meshBuilder);
@@ -66,14 +67,13 @@ public class SphereCubeGeneration : MonoBehaviour {
 
             Vector2 longlat = new Vector2(Mathf.Atan2(v.x, v.z) + Mathf.PI, Mathf.Acos(v.y));
             Vector2 uv = new Vector2(longlat.x / (2f * Mathf.PI), longlat.y / Mathf.PI);
-            uv.y = (-1f) * uv.y;
+            uv.y = 1f - uv.y;
 
             meshBuilder.UVs.Add(uv);
         }
 
 
         Mesh mesh = meshBuilder.CreateMesh();
-        mesh.RecalculateBounds();
         filter.mesh = mesh;
     }
 }
