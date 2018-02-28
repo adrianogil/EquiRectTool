@@ -52,11 +52,13 @@ public class SphereCubeGeneration : MonoBehaviour {
         meshBuilder.AddTriangle(9,7,8);
         meshBuilder.AddTriangle(9,0,7);
 
-        MeshProcessing.SubdivideTriangles(meshBuilder);
-        MeshProcessing.SubdivideTriangles(meshBuilder);
-        MeshProcessing.SubdivideTriangles(meshBuilder);
-        MeshProcessing.SubdivideTriangles(meshBuilder);
-        MeshProcessing.SubdivideTriangles(meshBuilder);
+        MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
+        MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
+        MeshProcessing.SubdivideTrianglesIn4(meshBuilder);
+        // MeshProcessing.SubdivideTriangles(meshBuilder);
+        // MeshProcessing.SubdivideTriangles(meshBuilder);
+        // MeshProcessing.SubdivideTriangles(meshBuilder);
+        // MeshProcessing.SubdivideTriangles(meshBuilder);
 
         for (int i = 0; i < meshBuilder.Vertices.Count; i++)
         {
