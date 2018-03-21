@@ -6,10 +6,15 @@ A didactic tool in Unity3D/WebGL
 - Assets/Scenes/sphere: Simple projection based on azimuth and elevation coordinates
 - Assets/Scenes/cube: Mesh subdivision to generate a cubemap projection from a equirectangular image
 
+![screenshot](https://raw.githubusercontent.com/adrianogil/EquiRectTool/master/screenshots/cubemap.png)
+
+![screenshot](https://raw.githubusercontent.com/adrianogil/EquiRectTool/master/screenshots/equiquad.png)
+
 ## Planned features
 - Lambert projection
 - Pyramid projection
 - Mollweide projection
+- Improve WebGL implementation
 
 ## Contributing
 
